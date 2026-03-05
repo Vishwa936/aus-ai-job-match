@@ -56,11 +56,11 @@ aus-ai-job-match
 ---
 ## ⚙️ Tech Stack (Planned)
 
-- **Backend:** Python, Django
-- **NLP:** scikit-learn, TF-IDF / similarity scoring
-- **Frontend:** React (Phase 2)
-- **Database:** PostgreSQL
-- **Deployment:** Render / Railway
+- **Backend:** Python (initial implementation)
+- **NLP:** scikit-learn, TF-IDF similarity
+- **Frontend:** Planned (Streamlit / React)
+- **Database:** Planned (PostgreSQL)
+- **Deployment:** Planned (Render / Railway)
 ---
 
 ## 🚀 MVP Features
