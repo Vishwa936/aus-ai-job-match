@@ -1,6 +1,8 @@
 # AI Job Match – Resume to Job Description Matching
 
-AI-powered resume-to-job description matching system tailored for the Australian job market using NLP and similarity scoring.
+AI-powered system that compares a resume with a job description and calculates a match score using NLP techniques such as TF-IDF similarity.
+
+This project is tailored for analysing job matches in the Australian technology job market.
 
 ---
 
