@@ -26,7 +26,29 @@ A web-based application that:
 - Provides actionable improvement suggestions
 
 ---
+## Example Output
 
+Resume: Data Analyst with Python and SQL experience  
+Job Description: Backend Engineer requiring Python, Docker, AWS
+
+Match Score: 67%
+
+Missing Skills:
+- Docker
+- AWS
+
+Suggested Improvements:
+- Mention backend API development
+- Highlight database optimisation experience
+---
+## Project Structure
+
+src/        → Core implementation of the AI matching system  
+tests/      → Unit tests for preprocessing and similarity engine  
+requirements.txt → Python dependencies  
+README.md   → Project documentation
+
+---
 ## ⚙️ Tech Stack (Planned)
 
 - **Backend:** Python, Django
@@ -34,7 +56,6 @@ A web-based application that:
 - **Frontend:** React (Phase 2)
 - **Database:** PostgreSQL
 - **Deployment:** Render / Railway
-
 ---
 
 ## 🚀 MVP Features
@@ -47,14 +68,12 @@ A web-based application that:
 
 ---
 
-## 📈 Future Improvements
+## Future Improvements
 
-- Resume file upload (PDF parsing)
-- Skill categorization
-- ATS-style scoring breakdown
-- AI-based resume improvement suggestions
-- Live deployed demo
-
+- Replace TF-IDF with embedding models
+- Add resume PDF parsing
+- Build a simple Streamlit interface
+- Integrate with job APIs for real-time analysis
 ---
 
 ## 📂 Project Status
