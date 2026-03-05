@@ -42,13 +42,13 @@ if st.button("Analyze Match"):
 
         st.subheader("Matched Skills")
 
-        for skill in matched_skills:
+        for skill in sorted(matched_skills):
             st.write("•", skill)
 
 
         st.subheader("Missing Skills")
 
-        for skill in missing:
+        for skill in sorted(missing):
             st.write("•", skill)
 
     else:
