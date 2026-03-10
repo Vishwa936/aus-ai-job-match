@@ -75,7 +75,7 @@ Utilities
 
 ## Project Structure
 
-'''
+```
 SkillSync-AI
 │
 ├── SkillSync_AI.py Main Streamlit application
@@ -93,7 +93,7 @@ SkillSync-AI
 │ │ └── suggestion_llm.py
 │
 └── tests
-'''
+```
 
 ---
 
