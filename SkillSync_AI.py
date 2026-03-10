@@ -164,7 +164,7 @@ with col1:
 
 with col2:
     if st.button("📄 Resume Guide"):
-        st.switch_page("pages/resume_tips.py")
+        st.switch_page("pages/Resume_Tips.py")
 
 
 # ---------------- ANALYZE BUTTON ----------------

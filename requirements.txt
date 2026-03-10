@@ -1,8 +1,9 @@
-scikit-learn
 streamlit
-pdfplumber
-python-docx
-openai
 sentence-transformers
-torch
+scikit-learn
+numpy
+pandas
+python-docx
+pypdf
+openai
 python-dotenv
