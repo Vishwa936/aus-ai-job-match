@@ -1,5 +1,8 @@
 scikit-learn
-spacy
 streamlit
 pdfplumber
 python-docx
+openai
+sentence-transformers
+torch
+python-dotenv

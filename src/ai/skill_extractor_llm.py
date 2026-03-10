@@ -1,81 +1,75 @@
 import json
 import os
-
+import re
+from groq import Groq
 from dotenv import load_dotenv
-from openai import OpenAI
 
-
-# Load environment variables from .env
 load_dotenv()
 
-# Initialize OpenAI client
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 
-def extract_skills_llm(text: str) -> set:
-    """
-    Extract professional skills from a text using an LLM.
-
-    Parameters
-    ----------
-    text : str
-        Resume or job description text.
-
-    Returns
-    -------
-    set
-        A set of extracted skills in lowercase.
-    """
-
-    if not text:
-        return set()
+def extract_skills_both(resume_text, job_text):
 
     prompt = f"""
-Extract all professional skills mentioned in the following text.
+You are an expert AI resume analyzer.
 
-Skills may include:
-- technical skills
-- programming languages
-- frameworks
-- databases
-- software tools
-- cloud platforms
-- analytical methods
-- industry tools
-- professional competencies
+Compare the resume with the job description and determine whether the resume
+demonstrates the key skills required for the job.
 
-Return ONLY valid JSON in this format:
+Focus on the **important technical or professional skills mentioned in the job description**.
+
+For each important skill, determine if the resume shows evidence of that skill,
+even if the wording is different.
+
+Examples:
+- Tableau or Power BI → data visualization
+- AWS EC2 / S3 / Lambda → AWS
+- Flask or Django APIs → REST APIs
+- Pandas / NumPy usage → data analysis
+
+Rules:
+- Focus on job-relevant skills
+- Avoid duplicates
+- Use concise skill names
+- Ignore soft skills unless explicitly required
+- If related technology implies the skill, consider it matched
+
+Return JSON only.
+
+FORMAT:
 
 {{
-  "skills": []
+ "matched_skills": [],
+ "missing_skills": []
 }}
 
-TEXT:
-{text}
+RESUME:
+{resume_text}
+
+JOB DESCRIPTION:
+{job_text}
 """
 
-    try:
+    response = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[
+            {"role": "system", "content": "You analyze resumes and job descriptions."},
+            {"role": "user", "content": prompt}
+        ],
+        temperature=0
+    )
 
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[
-                {"role": "system", "content": "You are an expert resume analyzer."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0
-        )
+    content = response.choices[0].message.content
 
-        content = response.choices[0].message.content.strip()
+    json_match = re.search(r"\{.*\}", content, re.DOTALL)
 
-        # Parse JSON response
-        skills_data = json.loads(content)
+    if not json_match:
+        return set(), set()
 
-        skills = set(skill.lower() for skill in skills_data.get("skills", []))
+    data = json.loads(json_match.group())
 
-        return skills
+    matched = set(s.lower() for s in data["matched_skills"])
+    missing = set(s.lower() for s in data["missing_skills"])
 
-    except Exception as error:
-
-        print("LLM skill extraction failed:", error)
-
-        return set()
+    return matched, missing
