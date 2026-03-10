@@ -5,7 +5,12 @@ SkillSync AI is an AI-powered system that analyzes how well a resume matches a j
 The platform identifies matching skills, missing skills, and provides actionable suggestions to improve resume alignment with job requirements.
 
 ---
+🚀 **Live Demo:**  
+https://skillsync-ai-analyzer.streamlit.app
 
+AI-powered system that compares a resume with a job description and calculates a match score using NLP and LLM techniques.
+
+---
 ## Problem
 
 Many graduates apply for jobs without understanding how well their resume aligns with the job description.
