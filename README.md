@@ -1,86 +1,124 @@
-# AI Job Match – Resume to Job Description Matching
+# SkillSync AI – Resume ↔ Job Match Analyzer
 
-AI-powered system that compares a resume with a job description and calculates a match score using NLP techniques such as TF-IDF similarity.
+SkillSync AI is an AI-powered system that analyzes how well a resume matches a job description using NLP and LLM-based skill extraction.
 
-This project is tailored for analysing job matches in the Australian technology job market.
-
----
-
-## 📌 Problem
-
-Many international graduates in Australia apply to jobs without knowing how well their resume aligns with job descriptions. This often results in low response rates and missed opportunities.
-
-There is a need for a simple, intelligent system that analyzes resume-to-job description alignment and highlights missing skills.
+The platform identifies matching skills, missing skills, and provides actionable suggestions to improve resume alignment with job requirements.
 
 ---
 
-## 💡 Solution
+## Problem
 
-A web-based application that:
+Many graduates apply for jobs without understanding how well their resume aligns with the job description.
 
-- Accepts resume text input
-- Accepts job description input
-- Extracts key skills and keywords
-- Calculates similarity score using NLP techniques
-- Identifies missing keywords
-- Provides actionable improvement suggestions
+This often leads to low interview rates because resumes miss important skills and keywords required by employers.
 
 ---
+
+## Solution
+
+SkillSync AI analyzes resumes against job descriptions and provides intelligent feedback.
+
+The system:
+
+• Extracts skills from resumes and job descriptions  
+• Calculates resume-to-job alignment score  
+• Identifies missing skills  
+• Generates improvement suggestions  
+• Provides resume writing tips  
+
+---
+
+## Features
+
+• Resume upload (PDF or DOCX)  
+• Manual resume text input  
+• Job description analysis  
+• AI skill extraction  
+• Match score calculation  
+• Missing skill detection  
+• AI improvement suggestions  
+• Resume writing guide  
+
+---
+
 ## Example Output
-
-```
-Resume: Data Analyst with Python and SQL experience
-Job Description: Backend Engineer requiring Python, Docker, AWS
-
 Match Score: 67%
 
-Missing Skills:
-- Docker
-- AWS
+Matched Skills
+Python, SQL, Data Analysis
 
-Suggested Improvements:
-- Mention backend API development
-- Highlight database optimisation experience
-```
+Missing Skills
+Docker, AWS
+
+Suggested Improvements
+Add cloud deployment experience and containerization projects.
+
+---
+
+## Tech Stack
+
+Backend  
+• Python  
+
+AI / NLP  
+• Sentence Transformers  
+• LLM-based skill extraction  
+
+Frontend  
+• Streamlit  
+
+Utilities  
+• PDF parsing  
+• DOCX parsing  
+
+---
+
 ## Project Structure
 
 ```
-aus-ai-job-match
+SkillSync-AI
 │
-├ src/              Core implementation of the AI matching system
-├ tests/            Unit tests for preprocessing and similarity engine
-├ requirements.txt  Python dependencies
-└ README.md         Project documentation
+├── SkillSync_AI.py Main Streamlit application
+├── requirements.txt
+│
+├── pages
+│ └── Resume_Tips.py
+│
+├── src
+│ ├── preprocess.py
+│ ├── file_parser.py
+│ ├── similarity.py
+│ ├── ai
+│ │ ├── skill_extractor_llm.py
+│ │ └── suggestion_llm.py
+│
+└── tests
 ```
-
----
-## ⚙️ Tech Stack (Planned)
-
-- **Backend:** Python (initial implementation)
-- **NLP:** scikit-learn, TF-IDF similarity
-- **Frontend:** Planned (Streamlit / React)
-- **Database:** Planned (PostgreSQL)
-- **Deployment:** Planned (Render / Railway)
----
-
-## 🚀 MVP Features
-
-- Resume text preprocessing
-- Job description keyword extraction
-- TF-IDF similarity scoring
-- Missing keyword detection
-- API endpoint returning match score
 
 ---
 
 ## Future Improvements
 
-- Replace TF-IDF with embedding models
-- Add resume PDF parsing
-- Build a simple Streamlit interface
-- Integrate with job APIs for real-time analysis
+• Resume rewriting suggestions using LLM  
+• Job application tracking dashboard  
+• User accounts and resume storage  
+• Analytics dashboard for skill gaps  
+• Integration with job APIs  
+
 ---
 
-## 📂 Project Status
+## Deployment
 
-Currently in active development.
+The application can be deployed using:
+
+• Streamlit Community Cloud  
+• Render  
+• Railway  
+
+---
+
+## Project Status
+
+Active development.
+
+Version 1 includes AI-powered resume-to-job matching with skill analysis and improvement suggestions.
